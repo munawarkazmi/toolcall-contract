@@ -1,0 +1,9 @@
+  parse_failure        24
+  unknown_tool         30
+  schema_violation     60
+  semantic_violation   68
+  validator_disagreement 0   <-- load-bearing; must be 0
+  invalid_marked_valid   0   <-- load-bearing; must be 0
+  other bucket mismatches 0   (constructed labels must match exactly)
+note: structural and semantic validity are separate axes (the bucket names which layer failed); task-appropriateness - whether the call was the right tool for the goal - is a stated non-goal.
+PASS

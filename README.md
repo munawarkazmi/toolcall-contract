@@ -84,8 +84,67 @@ about that model at those settings.
 
 ## Results
 
-*Published with the datasets in the next commits, quoted verbatim from the
-tools' output.*
+Verbatim tool output, committed under [reports/](reports/).
+
+**The differential invariant** (`tools/fuzz_differential.py`):
+
+```text
+fuzz: 25000 schema/instance pairs, ours vs jsonschema 4.19.2: 25000 agreements, 0 disagreements
+PASS: full structural agreement with the independent oracle
+```
+
+**Tier one - constructed** (262 cases, every label oracle-confirmed):
+
+```text
+  valid                80
+  parse_failure        24
+  unknown_tool         30
+  schema_violation     60
+  semantic_violation   68
+  validator_disagreement 0   <-- load-bearing; must be 0
+  invalid_marked_valid   0   <-- load-bearing; must be 0
+  other bucket mismatches 0   (constructed labels must match exactly)
+```
+
+**Tier two - real model.** Forty tasks, one call each from
+`qwen2.5:7b-instruct` (temperature 0, served locally by Ollama), raw
+responses committed, evaluation replayed deterministically in CI:
+
+```text
+model under evaluation: qwen2.5:7b-instruct (temperature 0)
+  valid                32
+  parse_failure        1
+  unknown_tool         0
+  schema_violation     0
+  semantic_violation   7
+  validator_disagreement 0   <-- load-bearing; must be 0
+```
+
+Reading it precisely - facts about one 7B model at one temperature on n=40:
+
+- **The structural layer alone would have passed 39 of 40 calls.** qwen
+  never hallucinated a tool name and never violated a schema - the checks
+  most agent frameworks stop at caught almost nothing.
+- **All the substance was semantic: 7 of 40 calls (17.5%) were schema-valid
+  contract violations** - four faithful transcriptions of nonexistent
+  entities into well-typed calls (`green_cylinder`, `workbench`,
+  `operator_5`, `lava_zone`), two copied-contradiction ordering violations
+  (a delivery ending before it starts; a geofence from 9.0 down to 1.0), and
+  one conditional violation (`scope: "zone"` with no zone). This is the
+  thesis in data: real tool-call failures live above the schema.
+- The one `parse_failure` is itself interesting: asked to rotate a camera it
+  has no tool for, the model emitted `{}` rather than hallucinating a tool.
+- **And the honest boundary, on display** ([tools/inspect_failures.py](tools/inspect_failures.py)
+  prints all of this from committed data): several impossible requests were
+  *silently substituted* into contract-valid calls - "warehouse 3" became
+  `storage_a`, "5 m/s" became `0.5`, "turn the robot off" became a status
+  report, 100 N of grip force was silently clamped to the schema maximum.
+  All of these land in `valid`, because they satisfy the contract. Whether a
+  call matches the user's *intent* is the task-appropriateness axis this
+  validator pre-declared as a non-goal - these cases are why that axis
+  exists, and why merging the two into one "valid" score would be a lie.
+  Catching silent substitution needs intent-grounding machinery, not a
+  stricter contract.
 
 ## Reproduce
 
