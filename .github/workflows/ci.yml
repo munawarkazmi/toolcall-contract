@@ -40,9 +40,11 @@ jobs:
       - name: Differential fuzz vs jsonschema
         run: python tools/fuzz_differential.py
 
-      # Replays the committed qwen2.5:7b-instruct responses; fails on
-      # any validator disagreement.
-      - name: Evaluate real-model tier (committed dataset)
+      # Replays every committed model dataset; fails on any validator
+      # disagreement.
+      - name: Evaluate real-model tier (committed datasets)
         run: |
           python tools/evaluate.py datasets/qwen2.5-7b-instruct.jsonl \
             --label "qwen2.5:7b-instruct (temperature 0)"
+          python tools/evaluate.py datasets/llama-3.3-70b-versatile.jsonl \
+            --label "llama-3.3-70b-versatile (temperature 0)"

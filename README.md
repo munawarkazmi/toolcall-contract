@@ -120,9 +120,9 @@ PASS: full structural agreement with the independent oracle
   other bucket mismatches 0   (constructed labels must match exactly)
 ```
 
-**Tier two - real model.** Forty tasks, one call each from
-`qwen2.5:7b-instruct` (temperature 0, served locally by Ollama), raw
-responses committed, evaluation replayed deterministically in CI:
+**Tier two - real models.** The same forty tasks, one call each, raw
+responses committed, every evaluation replayed deterministically in CI.
+First `qwen2.5:7b-instruct` (temperature 0, served locally by Ollama):
 
 ```text
 model under evaluation: qwen2.5:7b-instruct (temperature 0)
@@ -166,6 +166,53 @@ Reading it precisely - facts about one 7B model at one temperature on n=40:
   Catching silent substitution needs intent-grounding machinery, not a
   stricter contract.
 
+**The same forty tasks against a second model.**
+`llama-3.3-70b-versatile` (temperature 0, hosted by Groq), collected with
+the same script over a hosted endpoint:
+
+```text
+model under evaluation: llama-3.3-70b-versatile (temperature 0)
+llama-3.3-70b-versatile.jsonl: 40 cases
+  valid                34
+  parse_failure        1
+  unknown_tool         0
+  schema_violation     0
+  semantic_violation   5
+  validator_disagreement 0   <-- load-bearing; must be 0
+```
+
+Per model, side by side - counts on the same n=40, never averaged into
+"LLMs":
+
+| bucket | qwen2.5:7b-instruct | llama-3.3-70b-versatile |
+|---|---|---|
+| valid | 32 | 34 |
+| parse_failure | 1 | 1 |
+| unknown_tool | 0 | 0 |
+| schema_violation | 0 | 0 |
+| semantic_violation | 7 | 5 |
+| validator_disagreement | 0 | 0 |
+
+Reading the replication precisely:
+
+- **The thesis survives its first replication: at ten times the parameters,
+  the structural layer alone would again have passed 39 of 40 calls.**
+  llama hallucinated no tool names and broke no schemas; every substantive
+  failure was again a schema-valid contract violation.
+- Its five semantic violations are the same three families qwen showed:
+  three faithful transcriptions of nonexistent entities into well-typed
+  calls (`green_cylinder`, `operator_5`, `lava_zone`), one
+  copied-contradiction ordering violation (a delivery ending at second 300
+  that starts at second 900), and one dangling conditional
+  (`scope: "zone"` with no zone). The 70B model stepped past two traps the
+  7B took (`workbench`, the descending geofence) - fewer entity errors,
+  identical failure kinds.
+- Both models' single `parse_failure` is the *same task*: asked to rotate
+  a camera no tool controls, qwen emitted `{}` and llama wrote a prose
+  refusal naming the missing capability. Neither hallucinated a tool -
+  the most honest failure in either dataset, landing in the one bucket
+  built for it.
+
 ## Reproduce
 
 ```bash
@@ -177,10 +224,13 @@ python tools/gen_constructed.py /tmp/regen.jsonl    # dataset regeneration
 diff datasets/constructed.jsonl /tmp/regen.jsonl
 python tools/evaluate.py datasets/constructed.jsonl # both load-bearing zeros
 python tools/fuzz_differential.py                   # 25,000-pair differential
+python tools/evaluate.py datasets/qwen2.5-7b-instruct.jsonl      # qwen tier
+python tools/evaluate.py datasets/llama-3.3-70b-versatile.jsonl  # llama tier
 ```
 
-Collection (`tools/collect_qwen.py`) needs any OpenAI-compatible endpoint;
-evaluation of the committed data needs none.
+Collection (`tools/collect_qwen.py`) needs any OpenAI-compatible endpoint -
+local Ollama by default, hosted endpoints via `--api-key-env` and
+`--min-interval-s`; evaluation of the committed data needs none.
 
 ## License
 

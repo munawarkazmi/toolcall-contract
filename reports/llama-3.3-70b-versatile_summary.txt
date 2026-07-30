@@ -1,0 +1,10 @@
+model under evaluation: llama-3.3-70b-versatile (temperature 0)
+llama-3.3-70b-versatile.jsonl: 40 cases
+  valid                34
+  parse_failure        1
+  unknown_tool         0
+  schema_violation     0
+  semantic_violation   5
+  validator_disagreement 0   <-- load-bearing; must be 0
+note: structural and semantic validity are separate axes (the bucket names which layer failed); task-appropriateness - whether the call was the right tool for the goal - is a stated non-goal.
+PASS

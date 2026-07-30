@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Collect real tool-call proposals from a local model, one per task.
+"""Collect real tool-call proposals from a model, one per task.
 
 Standard library only; OpenAI-compatible endpoint (local Ollama by
-default). Appends one record per task to the output JSONL and skips
-tasks already present, so an interrupted run resumes. The raw responses
+default, hosted endpoints via --api-key-env and --min-interval-s).
+Appends one record per task to the output JSONL and skips tasks
+already present, so an interrupted run resumes. The raw responses
 are committed as the dataset; evaluation replays them deterministically
 with zero inference.
 
@@ -18,6 +19,7 @@ Usage:
 """
 import argparse
 import json
+import os
 import pathlib
 import sys
 import time
@@ -57,14 +59,17 @@ def build_prompt(task: str) -> str:
                          task=task)
 
 
-def call(base_url, model, prompt, timeout_s):
+def call(base_url, model, prompt, timeout_s, api_key=None):
     payload = {"model": model, "temperature": 0.0, "max_tokens": 500,
                "messages": [{"role": "user", "content": prompt}]}
+    headers = {"Content-Type": "application/json",
+               "User-Agent": "toolcall-contract-eval/0.1"}
+    if api_key:
+        headers["Authorization"] = f"Bearer {api_key}"
     req = urllib.request.Request(
         base_url.rstrip("/") + "/chat/completions",
         data=json.dumps(payload).encode(),
-        headers={"Content-Type": "application/json",
-                 "User-Agent": "toolcall-contract-eval/0.1"},
+        headers=headers,
         method="POST")
     with urllib.request.urlopen(req, timeout=timeout_s) as resp:
         return json.loads(resp.read().decode())["choices"][0]["message"]["content"]
@@ -76,8 +81,11 @@ def main() -> int:
     ap.add_argument("--base-url", required=True)
     ap.add_argument("--model", required=True)
     ap.add_argument("--timeout-s", type=float, default=300.0)
+    ap.add_argument("--api-key-env", default=None)
+    ap.add_argument("--min-interval-s", type=float, default=0.0)
     args = ap.parse_args()
 
+    api_key = os.environ.get(args.api_key_env) if args.api_key_env else None
     tasks = json.loads((ROOT / "datasets/tasks.json").read_text(encoding="utf-8"))
     out_path = ROOT / "datasets" / f"{args.name}.jsonl"
     done = set()
@@ -86,14 +94,19 @@ def main() -> int:
             if line.strip():
                 done.add(json.loads(line)["id"])
 
+    last = 0.0
     with out_path.open("a", encoding="utf-8") as out:
         for i, task in enumerate(tasks):
             if i in done:
                 continue
             prompt = build_prompt(task)
+            wait = args.min_interval_s - (time.time() - last)
+            if wait > 0:
+                time.sleep(wait)
             t0 = time.time()
             try:
-                raw = call(args.base_url, args.model, prompt, args.timeout_s)
+                raw = call(args.base_url, args.model, prompt, args.timeout_s,
+                           api_key)
             except Exception as exc:  # noqa: BLE001 - record and continue
                 print(f"task {i}: ERROR {exc}", file=sys.stderr)
                 continue
