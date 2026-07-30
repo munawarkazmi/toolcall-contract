@@ -1,0 +1,22 @@
+[project]
+name = "toolcall-contract"
+version = "0.1.0"
+description = "Two-layer deterministic validator for LLM tool calls: a stdlib structural checker differentially tested against jsonschema, plus the semantic contract layer where real tool-call failures live."
+requires-python = ">=3.10"
+# The validator itself has no runtime dependencies - jsonschema is the
+# independent oracle it is tested against, not something it relies on.
+dependencies = []
+
+[project.optional-dependencies]
+# The oracle is pinned exactly: the differential claim ("agrees with
+# jsonschema on every fuzzed case") is a claim about a specific oracle
+# version, and an unpinned oracle would make the asserted counts
+# environment-dependent.
+dev = ["pytest>=8", "jsonschema==4.19.2"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["toolcall_contract"]

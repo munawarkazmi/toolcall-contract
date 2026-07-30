@@ -1,0 +1,7 @@
+{
+  "waypoints": ["dock", "charging_station", "kitchen", "lab_door", "storage_a",
+                "storage_b", "front_desk", "elevator_1"],
+  "zones": ["wet_floor", "loading_bay", "quiet_zone", "stairwell"],
+  "objects": ["red_box", "blue_crate", "toolkit", "sample_tray", "battery_pack"],
+  "people": ["operator_1", "operator_2", "visitor_badge_7"]
+}

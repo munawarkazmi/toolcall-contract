@@ -1,0 +1,262 @@
+{"call": {"arguments": {"waypoint": "charging_station"}, "tool": "navigate_to_waypoint"}, "class": "valid", "expected": "valid", "id": 0}
+{"call": {"arguments": {"gripper_force": 9.884, "object_id": "blue_crate"}, "tool": "pick_object"}, "class": "valid", "expected": "valid", "id": 1}
+{"call": {"arguments": {"gentle": true, "object_id": "red_box", "waypoint": "charging_station"}, "tool": "place_object"}, "class": "valid", "expected": "valid", "id": 2}
+{"call": {"arguments": {"limit": 0.278, "scope": "global"}, "tool": "set_speed_limit"}, "class": "valid", "expected": "valid", "id": 3}
+{"call": {"arguments": {"end_time": 91, "priority": 4, "start_time": 83, "task_type": "charge"}, "tool": "schedule_task"}, "class": "valid", "expected": "valid", "id": 4}
+{"call": {"arguments": {"area": "floor1"}, "tool": "query_map"}, "class": "valid", "expected": "valid", "id": 5}
+{"call": {"arguments": {"person_id": "operator_1"}, "tool": "grasp_handoff"}, "class": "valid", "expected": "valid", "id": 6}
+{"call": {"arguments": {"channel": "ops", "include_battery": true}, "tool": "report_status"}, "class": "valid", "expected": "valid", "id": 7}
+{"call": {"arguments": {"avoid_zones": ["stairwell"], "speed": 1.634, "waypoint": "storage_b"}, "tool": "navigate_to_waypoint"}, "class": "valid", "expected": "valid", "id": 8}
+{"call": {"arguments": {"gripper_force": 24.321, "object_id": "red_box"}, "tool": "pick_object"}, "class": "valid", "expected": "valid", "id": 9}
+{"call": {"arguments": {"gentle": false, "object_id": "battery_pack", "waypoint": "storage_b"}, "tool": "place_object"}, "class": "valid", "expected": "valid", "id": 10}
+{"call": {"arguments": {"limit": 0.187, "scope": "global"}, "tool": "set_speed_limit"}, "class": "valid", "expected": "valid", "id": 11}
+{"call": {"arguments": {"end_time": 48, "start_time": 12, "task_type": "charge"}, "tool": "schedule_task"}, "class": "valid", "expected": "valid", "id": 12}
+{"call": {"arguments": {"area": "floor2"}, "tool": "query_map"}, "class": "valid", "expected": "valid", "id": 13}
+{"call": {"arguments": {"confirm_speech": true, "person_id": "visitor_badge_7"}, "tool": "grasp_handoff"}, "class": "valid", "expected": "valid", "id": 14}
+{"call": {"arguments": {"channel": "maintenance"}, "tool": "report_status"}, "class": "valid", "expected": "valid", "id": 15}
+{"call": {"arguments": {"avoid_zones": ["wet_floor"], "speed": 1.701, "waypoint": "lab_door"}, "tool": "navigate_to_waypoint"}, "class": "valid", "expected": "valid", "id": 16}
+{"call": {"arguments": {"gripper_force": 19.041, "object_id": "toolkit"}, "tool": "pick_object"}, "class": "valid", "expected": "valid", "id": 17}
+{"call": {"arguments": {"gentle": false, "object_id": "red_box", "waypoint": "lab_door"}, "tool": "place_object"}, "class": "valid", "expected": "valid", "id": 18}
+{"call": {"arguments": {"limit": 1.464, "scope": "global"}, "tool": "set_speed_limit"}, "class": "valid", "expected": "valid", "id": 19}
+{"call": {"arguments": {"end_time": 33, "start_time": 18, "task_type": "clean"}, "tool": "schedule_task"}, "class": "valid", "expected": "valid", "id": 20}
+{"call": {"arguments": {"area": "floor2", "include_dynamic": true, "resolution": 0.434}, "tool": "query_map"}, "class": "valid", "expected": "valid", "id": 21}
+{"call": {"arguments": {"confirm_speech": false, "person_id": "operator_1"}, "tool": "grasp_handoff"}, "class": "valid", "expected": "valid", "id": 22}
+{"call": {"arguments": {"channel": "ops", "include_battery": false}, "tool": "report_status"}, "class": "valid", "expected": "valid", "id": 23}
+{"call": {"arguments": {"speed": 0.989, "waypoint": "front_desk"}, "tool": "navigate_to_waypoint"}, "class": "valid", "expected": "valid", "id": 24}
+{"call": {"arguments": {"gripper_force": 35.127, "object_id": "battery_pack"}, "tool": "pick_object"}, "class": "valid", "expected": "valid", "id": 25}
+{"call": {"arguments": {"gentle": false, "object_id": "red_box", "waypoint": "charging_station"}, "tool": "place_object"}, "class": "valid", "expected": "valid", "id": 26}
+{"call": {"arguments": {"limit": 0.607, "scope": "zone", "zone": "stairwell"}, "tool": "set_speed_limit"}, "class": "valid", "expected": "valid", "id": 27}
+{"call": {"arguments": {"end_time": 58, "priority": 3, "start_time": 0, "task_type": "charge"}, "tool": "schedule_task"}, "class": "valid", "expected": "valid", "id": 28}
+{"call": {"arguments": {"area": "floor1", "include_dynamic": false, "resolution": 0.115}, "tool": "query_map"}, "class": "valid", "expected": "valid", "id": 29}
+{"call": {"arguments": {"confirm_speech": false, "person_id": "operator_1"}, "tool": "grasp_handoff"}, "class": "valid", "expected": "valid", "id": 30}
+{"call": {"arguments": {"channel": "maintenance", "include_battery": false}, "tool": "report_status"}, "class": "valid", "expected": "valid", "id": 31}
+{"call": {"arguments": {"speed": 1.68, "waypoint": "storage_b"}, "tool": "navigate_to_waypoint"}, "class": "valid", "expected": "valid", "id": 32}
+{"call": {"arguments": {"gripper_force": 13.431, "object_id": "red_box"}, "tool": "pick_object"}, "class": "valid", "expected": "valid", "id": 33}
+{"call": {"arguments": {"object_id": "battery_pack", "waypoint": "charging_station"}, "tool": "place_object"}, "class": "valid", "expected": "valid", "id": 34}
+{"call": {"arguments": {"limit": 1.023, "scope": "global"}, "tool": "set_speed_limit"}, "class": "valid", "expected": "valid", "id": 35}
+{"call": {"arguments": {"end_time": 84, "priority": 2, "start_time": 60, "task_type": "charge"}, "tool": "schedule_task"}, "class": "valid", "expected": "valid", "id": 36}
+{"call": {"arguments": {"area": "floor2", "include_dynamic": false, "resolution": 0.611}, "tool": "query_map"}, "class": "valid", "expected": "valid", "id": 37}
+{"call": {"arguments": {"person_id": "visitor_badge_7"}, "tool": "grasp_handoff"}, "class": "valid", "expected": "valid", "id": 38}
+{"call": {"arguments": {"channel": "maintenance", "include_battery": true}, "tool": "report_status"}, "class": "valid", "expected": "valid", "id": 39}
+{"call": {"arguments": {"avoid_zones": ["wet_floor"], "waypoint": "storage_b"}, "tool": "navigate_to_waypoint"}, "class": "valid", "expected": "valid", "id": 40}
+{"call": {"arguments": {"gripper_force": 29.774, "object_id": "red_box"}, "tool": "pick_object"}, "class": "valid", "expected": "valid", "id": 41}
+{"call": {"arguments": {"object_id": "red_box", "waypoint": "lab_door"}, "tool": "place_object"}, "class": "valid", "expected": "valid", "id": 42}
+{"call": {"arguments": {"limit": 0.16, "scope": "zone", "zone": "loading_bay"}, "tool": "set_speed_limit"}, "class": "valid", "expected": "valid", "id": 43}
+{"call": {"arguments": {"end_time": 85, "start_time": 62, "task_type": "deliver"}, "tool": "schedule_task"}, "class": "valid", "expected": "valid", "id": 44}
+{"call": {"arguments": {"area": "floor1", "include_dynamic": true, "resolution": 0.884}, "tool": "query_map"}, "class": "valid", "expected": "valid", "id": 45}
+{"call": {"arguments": {}, "tool": "grasp_handoff"}, "class": "valid", "expected": "valid", "id": 46}
+{"call": {"arguments": {"channel": "maintenance"}, "tool": "report_status"}, "class": "valid", "expected": "valid", "id": 47}
+{"call": {"arguments": {"speed": 1.97, "waypoint": "dock"}, "tool": "navigate_to_waypoint"}, "class": "valid", "expected": "valid", "id": 48}
+{"call": {"arguments": {"gripper_force": 30.487, "object_id": "sample_tray"}, "tool": "pick_object"}, "class": "valid", "expected": "valid", "id": 49}
+{"call": {"arguments": {"object_id": "red_box", "waypoint": "lab_door"}, "tool": "place_object"}, "class": "valid", "expected": "valid", "id": 50}
+{"call": {"arguments": {"limit": 1.119, "scope": "global"}, "tool": "set_speed_limit"}, "class": "valid", "expected": "valid", "id": 51}
+{"call": {"arguments": {"end_time": 59, "priority": 1, "start_time": 31, "task_type": "deliver"}, "tool": "schedule_task"}, "class": "valid", "expected": "valid", "id": 52}
+{"call": {"arguments": {"area": "outdoor", "resolution": 0.857}, "tool": "query_map"}, "class": "valid", "expected": "valid", "id": 53}
+{"call": {"arguments": {"confirm_speech": false, "person_id": "visitor_badge_7"}, "tool": "grasp_handoff"}, "class": "valid", "expected": "valid", "id": 54}
+{"call": {"arguments": {"channel": "ops"}, "tool": "report_status"}, "class": "valid", "expected": "valid", "id": 55}
+{"call": {"arguments": {"avoid_zones": ["stairwell", "loading_bay"], "waypoint": "kitchen"}, "tool": "navigate_to_waypoint"}, "class": "valid", "expected": "valid", "id": 56}
+{"call": {"arguments": {"gripper_force": 29.381, "object_id": "sample_tray"}, "tool": "pick_object"}, "class": "valid", "expected": "valid", "id": 57}
+{"call": {"arguments": {"object_id": "battery_pack", "waypoint": "elevator_1"}, "tool": "place_object"}, "class": "valid", "expected": "valid", "id": 58}
+{"call": {"arguments": {"limit": 0.664, "scope": "global"}, "tool": "set_speed_limit"}, "class": "valid", "expected": "valid", "id": 59}
+{"call": {"arguments": {"end_time": 7, "priority": 5, "start_time": 6, "task_type": "deliver"}, "tool": "schedule_task"}, "class": "valid", "expected": "valid", "id": 60}
+{"call": {"arguments": {"area": "floor1", "include_dynamic": false}, "tool": "query_map"}, "class": "valid", "expected": "valid", "id": 61}
+{"call": {"arguments": {"confirm_speech": true}, "tool": "grasp_handoff"}, "class": "valid", "expected": "valid", "id": 62}
+{"call": {"arguments": {"channel": "maintenance"}, "tool": "report_status"}, "class": "valid", "expected": "valid", "id": 63}
+{"call": {"arguments": {"avoid_zones": ["quiet_zone"], "speed": 0.488, "waypoint": "storage_b"}, "tool": "navigate_to_waypoint"}, "class": "valid", "expected": "valid", "id": 64}
+{"call": {"arguments": {"gripper_force": 9.581, "object_id": "sample_tray"}, "tool": "pick_object"}, "class": "valid", "expected": "valid", "id": 65}
+{"call": {"arguments": {"object_id": "toolkit", "waypoint": "elevator_1"}, "tool": "place_object"}, "class": "valid", "expected": "valid", "id": 66}
+{"call": {"arguments": {"limit": 1.529, "scope": "global"}, "tool": "set_speed_limit"}, "class": "valid", "expected": "valid", "id": 67}
+{"call": {"arguments": {"end_time": 68, "start_time": 9, "task_type": "patrol"}, "tool": "schedule_task"}, "class": "valid", "expected": "valid", "id": 68}
+{"call": {"arguments": {"area": "floor2"}, "tool": "query_map"}, "class": "valid", "expected": "valid", "id": 69}
+{"call": {"arguments": {}, "tool": "grasp_handoff"}, "class": "valid", "expected": "valid", "id": 70}
+{"call": {"arguments": {"channel": "safety", "geofence_max": 9.872, "geofence_min": 0.078, "include_battery": false}, "tool": "report_status"}, "class": "valid", "expected": "valid", "id": 71}
+{"call": {"arguments": {"avoid_zones": ["wet_floor", "stairwell"], "speed": 0.297, "waypoint": "storage_a"}, "tool": "navigate_to_waypoint"}, "class": "valid", "expected": "valid", "id": 72}
+{"call": {"arguments": {"gripper_force": 10.441, "object_id": "battery_pack"}, "tool": "pick_object"}, "class": "valid", "expected": "valid", "id": 73}
+{"call": {"arguments": {"gentle": true, "object_id": "toolkit", "waypoint": "lab_door"}, "tool": "place_object"}, "class": "valid", "expected": "valid", "id": 74}
+{"call": {"arguments": {"limit": 1.305, "scope": "zone", "zone": "quiet_zone"}, "tool": "set_speed_limit"}, "class": "valid", "expected": "valid", "id": 75}
+{"call": {"arguments": {"end_time": 81, "start_time": 11, "task_type": "patrol"}, "tool": "schedule_task"}, "class": "valid", "expected": "valid", "id": 76}
+{"call": {"arguments": {"area": "floor2"}, "tool": "query_map"}, "class": "valid", "expected": "valid", "id": 77}
+{"call": {"arguments": {"confirm_speech": false, "waypoint": "kitchen"}, "tool": "grasp_handoff"}, "class": "valid", "expected": "valid", "id": 78}
+{"call": {"arguments": {"channel": "safety", "include_battery": true}, "tool": "report_status"}, "class": "valid", "expected": "valid", "id": 79}
+{"class": "parse_failure", "expected": "parse_failure", "id": 80, "raw": "{\"tool\": \"navigate_to_waypoint\", \"arguments\": {\"waypoint\": \"dock\"}"}
+{"class": "parse_failure", "expected": "parse_failure", "id": 81, "raw": "{\"tool\": \"navigate_to_waypoint\", \"arguments: {\"waypoint\": \"dock\"}}"}
+{"class": "parse_failure", "expected": "parse_failure", "id": 82, "raw": "I will now call the tool."}
+{"class": "parse_failure", "expected": "parse_failure", "id": 83, "raw": ""}
+{"class": "parse_failure", "expected": "parse_failure", "id": 84, "raw": "{}"}
+{"class": "parse_failure", "expected": "parse_failure", "id": 85, "raw": "{\"tool\": \"navigate_to_waypoint\"}"}
+{"class": "parse_failure", "expected": "parse_failure", "id": 86, "raw": "{\"tool\": \"navigate_to_waypoint\", \"arguments\": []}"}
+{"class": "parse_failure", "expected": "parse_failure", "id": 87, "raw": "[\"tool\": \"navigate_to_waypoint\", \"arguments\": {\"waypoint\": \"dock\"}}"}
+{"class": "parse_failure", "expected": "parse_failure", "id": 88, "raw": "{\"tool\": \"navigate_to_waypoint\", \"arguments\": {\"waypoint\": \"dock\"}"}
+{"class": "parse_failure", "expected": "parse_failure", "id": 89, "raw": "{\"tool\": \"navigate_to_waypoint\", \"arguments: {\"waypoint\": \"dock\"}}"}
+{"class": "parse_failure", "expected": "parse_failure", "id": 90, "raw": "I will now call the tool."}
+{"class": "parse_failure", "expected": "parse_failure", "id": 91, "raw": ""}
+{"class": "parse_failure", "expected": "parse_failure", "id": 92, "raw": "{}"}
+{"class": "parse_failure", "expected": "parse_failure", "id": 93, "raw": "{\"tool\": \"navigate_to_waypoint\"}"}
+{"class": "parse_failure", "expected": "parse_failure", "id": 94, "raw": "{\"tool\": \"navigate_to_waypoint\", \"arguments\": []}"}
+{"class": "parse_failure", "expected": "parse_failure", "id": 95, "raw": "[\"tool\": \"navigate_to_waypoint\", \"arguments\": {\"waypoint\": \"dock\"}}"}
+{"class": "parse_failure", "expected": "parse_failure", "id": 96, "raw": "{\"tool\": \"navigate_to_waypoint\", \"arguments\": {\"waypoint\": \"dock\"}"}
+{"class": "parse_failure", "expected": "parse_failure", "id": 97, "raw": "{\"tool\": \"navigate_to_waypoint\", \"arguments: {\"waypoint\": \"dock\"}}"}
+{"class": "parse_failure", "expected": "parse_failure", "id": 98, "raw": "I will now call the tool."}
+{"class": "parse_failure", "expected": "parse_failure", "id": 99, "raw": ""}
+{"class": "parse_failure", "expected": "parse_failure", "id": 100, "raw": "{}"}
+{"class": "parse_failure", "expected": "parse_failure", "id": 101, "raw": "{\"tool\": \"navigate_to_waypoint\"}"}
+{"class": "parse_failure", "expected": "parse_failure", "id": 102, "raw": "{\"tool\": \"navigate_to_waypoint\", \"arguments\": []}"}
+{"class": "parse_failure", "expected": "parse_failure", "id": 103, "raw": "[\"tool\": \"navigate_to_waypoint\", \"arguments\": {\"waypoint\": \"dock\"}}"}
+{"call": {"arguments": {"waypoint": "dock"}, "tool": "navigate_to_goal"}, "class": "unknown_tool", "expected": "unknown_tool", "id": 104}
+{"call": {"arguments": {"waypoint": "dock"}, "tool": "goto_waypoint"}, "class": "unknown_tool", "expected": "unknown_tool", "id": 105}
+{"call": {"arguments": {"waypoint": "dock"}, "tool": "move_robot"}, "class": "unknown_tool", "expected": "unknown_tool", "id": 106}
+{"call": {"arguments": {"waypoint": "dock"}, "tool": "pickup_object"}, "class": "unknown_tool", "expected": "unknown_tool", "id": 107}
+{"call": {"arguments": {"waypoint": "dock"}, "tool": "set_max_speed"}, "class": "unknown_tool", "expected": "unknown_tool", "id": 108}
+{"call": {"arguments": {"waypoint": "dock"}, "tool": "get_map"}, "class": "unknown_tool", "expected": "unknown_tool", "id": 109}
+{"call": {"arguments": {"waypoint": "dock"}, "tool": "report"}, "class": "unknown_tool", "expected": "unknown_tool", "id": 110}
+{"call": {"arguments": {"waypoint": "dock"}, "tool": "hand_off"}, "class": "unknown_tool", "expected": "unknown_tool", "id": 111}
+{"call": {"arguments": {"waypoint": "dock"}, "tool": "navigate"}, "class": "unknown_tool", "expected": "unknown_tool", "id": 112}
+{"call": {"arguments": {"waypoint": "dock"}, "tool": "place"}, "class": "unknown_tool", "expected": "unknown_tool", "id": 113}
+{"call": {"arguments": {"waypoint": "dock"}, "tool": "scheduleTask"}, "class": "unknown_tool", "expected": "unknown_tool", "id": 114}
+{"call": {"arguments": {"waypoint": "dock"}, "tool": "query_map_area"}, "class": "unknown_tool", "expected": "unknown_tool", "id": 115}
+{"call": {"arguments": {"waypoint": "dock"}, "tool": "navigate_to_goal"}, "class": "unknown_tool", "expected": "unknown_tool", "id": 116}
+{"call": {"arguments": {"waypoint": "dock"}, "tool": "goto_waypoint"}, "class": "unknown_tool", "expected": "unknown_tool", "id": 117}
+{"call": {"arguments": {"waypoint": "dock"}, "tool": "move_robot"}, "class": "unknown_tool", "expected": "unknown_tool", "id": 118}
+{"call": {"arguments": {"waypoint": "dock"}, "tool": "pickup_object"}, "class": "unknown_tool", "expected": "unknown_tool", "id": 119}
+{"call": {"arguments": {"waypoint": "dock"}, "tool": "set_max_speed"}, "class": "unknown_tool", "expected": "unknown_tool", "id": 120}
+{"call": {"arguments": {"waypoint": "dock"}, "tool": "get_map"}, "class": "unknown_tool", "expected": "unknown_tool", "id": 121}
+{"call": {"arguments": {"waypoint": "dock"}, "tool": "report"}, "class": "unknown_tool", "expected": "unknown_tool", "id": 122}
+{"call": {"arguments": {"waypoint": "dock"}, "tool": "hand_off"}, "class": "unknown_tool", "expected": "unknown_tool", "id": 123}
+{"call": {"arguments": {"waypoint": "dock"}, "tool": "navigate"}, "class": "unknown_tool", "expected": "unknown_tool", "id": 124}
+{"call": {"arguments": {"waypoint": "dock"}, "tool": "place"}, "class": "unknown_tool", "expected": "unknown_tool", "id": 125}
+{"call": {"arguments": {"waypoint": "dock"}, "tool": "scheduleTask"}, "class": "unknown_tool", "expected": "unknown_tool", "id": 126}
+{"call": {"arguments": {"waypoint": "dock"}, "tool": "query_map_area"}, "class": "unknown_tool", "expected": "unknown_tool", "id": 127}
+{"call": {"arguments": {"waypoint": "dock"}, "tool": "navigate_to_goal"}, "class": "unknown_tool", "expected": "unknown_tool", "id": 128}
+{"call": {"arguments": {"waypoint": "dock"}, "tool": "goto_waypoint"}, "class": "unknown_tool", "expected": "unknown_tool", "id": 129}
+{"call": {"arguments": {"waypoint": "dock"}, "tool": "move_robot"}, "class": "unknown_tool", "expected": "unknown_tool", "id": 130}
+{"call": {"arguments": {"waypoint": "dock"}, "tool": "pickup_object"}, "class": "unknown_tool", "expected": "unknown_tool", "id": 131}
+{"call": {"arguments": {"waypoint": "dock"}, "tool": "set_max_speed"}, "class": "unknown_tool", "expected": "unknown_tool", "id": 132}
+{"call": {"arguments": {"waypoint": "dock"}, "tool": "get_map"}, "class": "unknown_tool", "expected": "unknown_tool", "id": 133}
+{"call": {"arguments": {"speed": 1.207}, "tool": "navigate_to_waypoint"}, "class": "schema_missing_required", "expected": "schema_violation", "id": 134}
+{"call": {"arguments": {"gripper_force": 15.789, "object_id": [1, 2]}, "tool": "pick_object"}, "class": "schema_wrong_type", "expected": "schema_violation", "id": 135}
+{"call": {"arguments": {"gentle": false, "object_id": "toolkit", "waypoint": ""}, "tool": "place_object"}, "class": "schema_bad_enum", "expected": "schema_violation", "id": 136}
+{"call": {"arguments": {"extra_param_4": true, "limit": 1.582, "scope": "zone", "zone": "loading_bay"}, "tool": "set_speed_limit"}, "class": "schema_extra_param", "expected": "schema_violation", "id": 137}
+{"call": {"arguments": {"end_time": 52, "priority": 1005, "start_time": 22, "task_type": "charge"}, "tool": "schedule_task"}, "class": "schema_out_of_range", "expected": "schema_violation", "id": 138}
+{"call": {"arguments": {"include_dynamic": true, "resolution": 0.865}, "tool": "query_map"}, "class": "schema_missing_required", "expected": "schema_violation", "id": 139}
+{"call": {"arguments": {"person_id": [1, 2]}, "tool": "grasp_handoff"}, "class": "schema_wrong_type", "expected": "schema_violation", "id": 140}
+{"call": {"arguments": {"channel": "definitely_not_a_member"}, "tool": "report_status"}, "class": "schema_bad_enum", "expected": "schema_violation", "id": 141}
+{"call": {"arguments": {"avoid_zones": ["quiet_zone", "stairwell"], "extra_param_9": true, "waypoint": "front_desk"}, "tool": "navigate_to_waypoint"}, "class": "schema_extra_param", "expected": "schema_violation", "id": 142}
+{"call": {"arguments": {"gripper_force": 1040, "object_id": "sample_tray"}, "tool": "pick_object"}, "class": "schema_out_of_range", "expected": "schema_violation", "id": 143}
+{"call": {"arguments": {"gentle": true, "object_id": "red_box"}, "tool": "place_object"}, "class": "schema_missing_required", "expected": "schema_violation", "id": 144}
+{"call": {"arguments": {"limit": 0.173, "scope": [1, 2], "zone": "quiet_zone"}, "tool": "set_speed_limit"}, "class": "schema_wrong_type", "expected": "schema_violation", "id": 145}
+{"call": {"arguments": {"end_time": 73, "start_time": 49, "task_type": "definitely_not_a_member"}, "tool": "schedule_task"}, "class": "schema_bad_enum", "expected": "schema_violation", "id": 146}
+{"call": {"arguments": {"area": "outdoor", "extra_param_4": true, "include_dynamic": false}, "tool": "query_map"}, "class": "schema_extra_param", "expected": "schema_violation", "id": 147}
+{"call": {"arguments": {"confirm_speech": true, "extra_param_x": true}, "tool": "grasp_handoff"}, "class": "schema_out_of_range", "expected": "schema_violation", "id": 148}
+{"call": {"arguments": {"geofence_max": 5.071, "geofence_min": 3.262, "include_battery": true}, "tool": "report_status"}, "class": "schema_missing_required", "expected": "schema_violation", "id": 149}
+{"call": {"arguments": {"avoid_zones": "not_an_array", "waypoint": "kitchen"}, "tool": "navigate_to_waypoint"}, "class": "schema_wrong_type", "expected": "schema_violation", "id": 150}
+{"call": {"arguments": {"gripper_force": 19.213, "object_id": ""}, "tool": "pick_object"}, "class": "schema_bad_enum", "expected": "schema_violation", "id": 151}
+{"call": {"arguments": {"extra_param_6": true, "object_id": "toolkit", "waypoint": "storage_a"}, "tool": "place_object"}, "class": "schema_extra_param", "expected": "schema_violation", "id": 152}
+{"call": {"arguments": {"limit": 1002.0, "scope": "zone", "zone": "stairwell"}, "tool": "set_speed_limit"}, "class": "schema_out_of_range", "expected": "schema_violation", "id": 153}
+{"call": {"arguments": {"end_time": 65, "priority": 5, "task_type": "patrol"}, "tool": "schedule_task"}, "class": "schema_missing_required", "expected": "schema_violation", "id": 154}
+{"call": {"arguments": {"area": [1, 2], "include_dynamic": true, "resolution": 0.754}, "tool": "query_map"}, "class": "schema_wrong_type", "expected": "schema_violation", "id": 155}
+{"call": {"arguments": {"confirm_speech": false, "person_id": ""}, "tool": "grasp_handoff"}, "class": "schema_bad_enum", "expected": "schema_violation", "id": 156}
+{"call": {"arguments": {"channel": "safety", "extra_param_4": true, "geofence_max": 4.944, "geofence_min": 1.944}, "tool": "report_status"}, "class": "schema_extra_param", "expected": "schema_violation", "id": 157}
+{"call": {"arguments": {"avoid_zones": ["stairwell"], "speed": 1002.0, "waypoint": "kitchen"}, "tool": "navigate_to_waypoint"}, "class": "schema_out_of_range", "expected": "schema_violation", "id": 158}
+{"call": {"arguments": {"object_id": "blue_crate"}, "tool": "pick_object"}, "class": "schema_missing_required", "expected": "schema_violation", "id": 159}
+{"call": {"arguments": {"gentle": true, "object_id": [1, 2], "waypoint": "lab_door"}, "tool": "place_object"}, "class": "schema_wrong_type", "expected": "schema_violation", "id": 160}
+{"call": {"arguments": {"limit": 1.623, "scope": "definitely_not_a_member", "zone": "stairwell"}, "tool": "set_speed_limit"}, "class": "schema_bad_enum", "expected": "schema_violation", "id": 161}
+{"call": {"arguments": {"end_time": 95, "extra_param_5": true, "priority": 4, "start_time": 20, "task_type": "clean"}, "tool": "schedule_task"}, "class": "schema_extra_param", "expected": "schema_violation", "id": 162}
+{"call": {"arguments": {"area": "floor1", "include_dynamic": true, "resolution": 1001.0}, "tool": "query_map"}, "class": "schema_out_of_range", "expected": "schema_violation", "id": 163}
+{"call": {"arguments": {"extra_param_x": true}, "tool": "grasp_handoff"}, "class": "schema_missing_required", "expected": "schema_violation", "id": 164}
+{"call": {"arguments": {"channel": "safety", "geofence_max": [1, 2]}, "tool": "report_status"}, "class": "schema_wrong_type", "expected": "schema_violation", "id": 165}
+{"call": {"arguments": {"speed": 0.222, "waypoint": ""}, "tool": "navigate_to_waypoint"}, "class": "schema_bad_enum", "expected": "schema_violation", "id": 166}
+{"call": {"arguments": {"extra_param_7": true, "gripper_force": 7.179, "object_id": "sample_tray"}, "tool": "pick_object"}, "class": "schema_extra_param", "expected": "schema_violation", "id": 167}
+{"call": {"arguments": {"extra_param_x": true, "gentle": false, "object_id": "sample_tray", "waypoint": "dock"}, "tool": "place_object"}, "class": "schema_out_of_range", "expected": "schema_violation", "id": 168}
+{"call": {"arguments": {"limit": 0.823}, "tool": "set_speed_limit"}, "class": "schema_missing_required", "expected": "schema_violation", "id": 169}
+{"call": {"arguments": {"end_time": 95, "priority": 5, "start_time": [1, 2], "task_type": "clean"}, "tool": "schedule_task"}, "class": "schema_wrong_type", "expected": "schema_violation", "id": 170}
+{"call": {"arguments": {"area": "definitely_not_a_member"}, "tool": "query_map"}, "class": "schema_bad_enum", "expected": "schema_violation", "id": 171}
+{"call": {"arguments": {"confirm_speech": false, "extra_param_3": true, "waypoint": "front_desk"}, "tool": "grasp_handoff"}, "class": "schema_extra_param", "expected": "schema_violation", "id": 172}
+{"call": {"arguments": {"channel": "maintenance", "extra_param_x": true, "include_battery": false}, "tool": "report_status"}, "class": "schema_out_of_range", "expected": "schema_violation", "id": 173}
+{"call": {"arguments": {}, "tool": "navigate_to_waypoint"}, "class": "schema_missing_required", "expected": "schema_violation", "id": 174}
+{"call": {"arguments": {"gripper_force": 18.269, "object_id": [1, 2]}, "tool": "pick_object"}, "class": "schema_wrong_type", "expected": "schema_violation", "id": 175}
+{"call": {"arguments": {"object_id": "sample_tray", "waypoint": ""}, "tool": "place_object"}, "class": "schema_bad_enum", "expected": "schema_violation", "id": 176}
+{"call": {"arguments": {"extra_param_8": true, "limit": 0.629, "scope": "zone", "zone": "wet_floor"}, "tool": "set_speed_limit"}, "class": "schema_extra_param", "expected": "schema_violation", "id": 177}
+{"call": {"arguments": {"end_time": 95, "priority": 1005, "start_time": 69, "task_type": "patrol"}, "tool": "schedule_task"}, "class": "schema_out_of_range", "expected": "schema_violation", "id": 178}
+{"call": {"arguments": {"include_dynamic": false, "resolution": 0.783}, "tool": "query_map"}, "class": "schema_missing_required", "expected": "schema_violation", "id": 179}
+{"call": {"arguments": {"person_id": [1, 2]}, "tool": "grasp_handoff"}, "class": "schema_wrong_type", "expected": "schema_violation", "id": 180}
+{"call": {"arguments": {"channel": "definitely_not_a_member", "include_battery": false}, "tool": "report_status"}, "class": "schema_bad_enum", "expected": "schema_violation", "id": 181}
+{"call": {"arguments": {"extra_param_1": true, "speed": 0.411, "waypoint": "charging_station"}, "tool": "navigate_to_waypoint"}, "class": "schema_extra_param", "expected": "schema_violation", "id": 182}
+{"call": {"arguments": {"gripper_force": 1040, "object_id": "toolkit"}, "tool": "pick_object"}, "class": "schema_out_of_range", "expected": "schema_violation", "id": 183}
+{"call": {"arguments": {"waypoint": "lab_door"}, "tool": "place_object"}, "class": "schema_missing_required", "expected": "schema_violation", "id": 184}
+{"call": {"arguments": {"limit": 0.294, "scope": "zone", "zone": [1, 2]}, "tool": "set_speed_limit"}, "class": "schema_wrong_type", "expected": "schema_violation", "id": 185}
+{"call": {"arguments": {"end_time": 68, "start_time": 44, "task_type": "definitely_not_a_member"}, "tool": "schedule_task"}, "class": "schema_bad_enum", "expected": "schema_violation", "id": 186}
+{"call": {"arguments": {"area": "full", "extra_param_2": true, "include_dynamic": false, "resolution": 0.348}, "tool": "query_map"}, "class": "schema_extra_param", "expected": "schema_violation", "id": 187}
+{"call": {"arguments": {"confirm_speech": true, "extra_param_x": true}, "tool": "grasp_handoff"}, "class": "schema_out_of_range", "expected": "schema_violation", "id": 188}
+{"call": {"arguments": {}, "tool": "report_status"}, "class": "schema_missing_required", "expected": "schema_violation", "id": 189}
+{"call": {"arguments": {"avoid_zones": ["quiet_zone", "wet_floor"], "waypoint": [1, 2]}, "tool": "navigate_to_waypoint"}, "class": "schema_wrong_type", "expected": "schema_violation", "id": 190}
+{"call": {"arguments": {"gripper_force": 35.857, "object_id": ""}, "tool": "pick_object"}, "class": "schema_bad_enum", "expected": "schema_violation", "id": 191}
+{"call": {"arguments": {"extra_param_8": true, "object_id": "sample_tray", "waypoint": "front_desk"}, "tool": "place_object"}, "class": "schema_extra_param", "expected": "schema_violation", "id": 192}
+{"call": {"arguments": {"limit": 1002.0, "scope": "global"}, "tool": "set_speed_limit"}, "class": "schema_out_of_range", "expected": "schema_violation", "id": 193}
+{"call": {"arguments": {"avoid_zones": ["wet_floor", "quiet_zone"], "waypoint": "warehouse_5"}, "tool": "navigate_to_waypoint"}, "class": "semantic_unknown_ref", "expected": "semantic_violation", "id": 194}
+{"call": {"arguments": {"waypoint": "warehouse_5"}, "tool": "navigate_to_waypoint"}, "class": "semantic_unknown_ref", "expected": "semantic_violation", "id": 195}
+{"call": {"arguments": {"avoid_zones": ["quiet_zone"], "speed": 1.033, "waypoint": "warehouse_5"}, "tool": "navigate_to_waypoint"}, "class": "semantic_unknown_ref", "expected": "semantic_violation", "id": 196}
+{"call": {"arguments": {"avoid_zones": ["quiet_zone", "loading_bay"], "speed": 0.682, "waypoint": "warehouse_7"}, "tool": "navigate_to_waypoint"}, "class": "semantic_unknown_ref", "expected": "semantic_violation", "id": 197}
+{"call": {"arguments": {"speed": 0.615, "waypoint": "warehouse_3"}, "tool": "navigate_to_waypoint"}, "class": "semantic_unknown_ref", "expected": "semantic_violation", "id": 198}
+{"call": {"arguments": {"avoid_zones": ["loading_bay"], "waypoint": "warehouse_5"}, "tool": "navigate_to_waypoint"}, "class": "semantic_unknown_ref", "expected": "semantic_violation", "id": 199}
+{"call": {"arguments": {"avoid_zones": ["wet_floor", "stairwell"], "waypoint": "warehouse_6"}, "tool": "navigate_to_waypoint"}, "class": "semantic_unknown_ref", "expected": "semantic_violation", "id": 200}
+{"call": {"arguments": {"waypoint": "warehouse_4"}, "tool": "navigate_to_waypoint"}, "class": "semantic_unknown_ref", "expected": "semantic_violation", "id": 201}
+{"call": {"arguments": {"waypoint": "warehouse_6"}, "tool": "navigate_to_waypoint"}, "class": "semantic_unknown_ref", "expected": "semantic_violation", "id": 202}
+{"call": {"arguments": {"speed": 1.53, "waypoint": "warehouse_2"}, "tool": "navigate_to_waypoint"}, "class": "semantic_unknown_ref", "expected": "semantic_violation", "id": 203}
+{"call": {"arguments": {"waypoint": "warehouse_4"}, "tool": "navigate_to_waypoint"}, "class": "semantic_unknown_ref", "expected": "semantic_violation", "id": 204}
+{"call": {"arguments": {"avoid_zones": ["wet_floor"], "waypoint": "warehouse_8"}, "tool": "navigate_to_waypoint"}, "class": "semantic_unknown_ref", "expected": "semantic_violation", "id": 205}
+{"call": {"arguments": {"avoid_zones": ["loading_bay"], "waypoint": "warehouse_4"}, "tool": "navigate_to_waypoint"}, "class": "semantic_unknown_ref", "expected": "semantic_violation", "id": 206}
+{"call": {"arguments": {"waypoint": "warehouse_8"}, "tool": "navigate_to_waypoint"}, "class": "semantic_unknown_ref", "expected": "semantic_violation", "id": 207}
+{"call": {"arguments": {"avoid_zones": ["stairwell", "loading_bay"], "speed": 0.823, "waypoint": "warehouse_2"}, "tool": "navigate_to_waypoint"}, "class": "semantic_unknown_ref", "expected": "semantic_violation", "id": 208}
+{"call": {"arguments": {"speed": 0.495, "waypoint": "warehouse_3"}, "tool": "navigate_to_waypoint"}, "class": "semantic_unknown_ref", "expected": "semantic_violation", "id": 209}
+{"call": {"arguments": {"avoid_zones": ["wet_floor"], "waypoint": "warehouse_8"}, "tool": "navigate_to_waypoint"}, "class": "semantic_unknown_ref", "expected": "semantic_violation", "id": 210}
+{"call": {"arguments": {"speed": 0.993, "waypoint": "warehouse_6"}, "tool": "navigate_to_waypoint"}, "class": "semantic_unknown_ref", "expected": "semantic_violation", "id": 211}
+{"call": {"arguments": {"avoid_zones": ["loading_bay", "stairwell"], "speed": 0.963, "waypoint": "warehouse_3"}, "tool": "navigate_to_waypoint"}, "class": "semantic_unknown_ref", "expected": "semantic_violation", "id": 212}
+{"call": {"arguments": {"avoid_zones": ["wet_floor"], "speed": 1.826, "waypoint": "warehouse_4"}, "tool": "navigate_to_waypoint"}, "class": "semantic_unknown_ref", "expected": "semantic_violation", "id": 213}
+{"call": {"arguments": {"person_id": "operator_2", "waypoint": "storage_a"}, "tool": "grasp_handoff"}, "class": "semantic_mutual_exclusion", "expected": "semantic_violation", "id": 214}
+{"call": {"arguments": {"person_id": "operator_2", "waypoint": "charging_station"}, "tool": "grasp_handoff"}, "class": "semantic_mutual_exclusion", "expected": "semantic_violation", "id": 215}
+{"call": {"arguments": {"person_id": "operator_2", "waypoint": "storage_a"}, "tool": "grasp_handoff"}, "class": "semantic_mutual_exclusion", "expected": "semantic_violation", "id": 216}
+{"call": {"arguments": {"person_id": "visitor_badge_7", "waypoint": "front_desk"}, "tool": "grasp_handoff"}, "class": "semantic_mutual_exclusion", "expected": "semantic_violation", "id": 217}
+{"call": {"arguments": {"person_id": "operator_2", "waypoint": "elevator_1"}, "tool": "grasp_handoff"}, "class": "semantic_mutual_exclusion", "expected": "semantic_violation", "id": 218}
+{"call": {"arguments": {"person_id": "operator_2", "waypoint": "charging_station"}, "tool": "grasp_handoff"}, "class": "semantic_mutual_exclusion", "expected": "semantic_violation", "id": 219}
+{"call": {"arguments": {"person_id": "visitor_badge_7", "waypoint": "dock"}, "tool": "grasp_handoff"}, "class": "semantic_mutual_exclusion", "expected": "semantic_violation", "id": 220}
+{"call": {"arguments": {"person_id": "operator_2", "waypoint": "storage_b"}, "tool": "grasp_handoff"}, "class": "semantic_mutual_exclusion", "expected": "semantic_violation", "id": 221}
+{"call": {"arguments": {"person_id": "visitor_badge_7", "waypoint": "storage_a"}, "tool": "grasp_handoff"}, "class": "semantic_mutual_exclusion", "expected": "semantic_violation", "id": 222}
+{"call": {"arguments": {"person_id": "operator_1", "waypoint": "charging_station"}, "tool": "grasp_handoff"}, "class": "semantic_mutual_exclusion", "expected": "semantic_violation", "id": 223}
+{"call": {"arguments": {"person_id": "operator_1", "waypoint": "dock"}, "tool": "grasp_handoff"}, "class": "semantic_mutual_exclusion", "expected": "semantic_violation", "id": 224}
+{"call": {"arguments": {"person_id": "visitor_badge_7", "waypoint": "storage_a"}, "tool": "grasp_handoff"}, "class": "semantic_mutual_exclusion", "expected": "semantic_violation", "id": 225}
+{"call": {"arguments": {"channel": "maintenance", "geofence_min": 0.4}, "tool": "report_status"}, "class": "semantic_missing_partner", "expected": "semantic_violation", "id": 226}
+{"call": {"arguments": {"channel": "ops", "geofence_min": 4.71}, "tool": "report_status"}, "class": "semantic_missing_partner", "expected": "semantic_violation", "id": 227}
+{"call": {"arguments": {"channel": "maintenance", "geofence_min": 4.42}, "tool": "report_status"}, "class": "semantic_missing_partner", "expected": "semantic_violation", "id": 228}
+{"call": {"arguments": {"channel": "safety", "geofence_min": 1.81}, "tool": "report_status"}, "class": "semantic_missing_partner", "expected": "semantic_violation", "id": 229}
+{"call": {"arguments": {"channel": "maintenance", "geofence_min": 4.36}, "tool": "report_status"}, "class": "semantic_missing_partner", "expected": "semantic_violation", "id": 230}
+{"call": {"arguments": {"channel": "safety", "geofence_min": 9.69}, "tool": "report_status"}, "class": "semantic_missing_partner", "expected": "semantic_violation", "id": 231}
+{"call": {"arguments": {"channel": "safety", "geofence_min": 3.48}, "tool": "report_status"}, "class": "semantic_missing_partner", "expected": "semantic_violation", "id": 232}
+{"call": {"arguments": {"channel": "safety", "geofence_min": 3.21}, "tool": "report_status"}, "class": "semantic_missing_partner", "expected": "semantic_violation", "id": 233}
+{"call": {"arguments": {"channel": "ops", "geofence_min": 8.58}, "tool": "report_status"}, "class": "semantic_missing_partner", "expected": "semantic_violation", "id": 234}
+{"call": {"arguments": {"channel": "safety", "geofence_min": 4.12}, "tool": "report_status"}, "class": "semantic_missing_partner", "expected": "semantic_violation", "id": 235}
+{"call": {"arguments": {"channel": "safety", "geofence_min": 2.88}, "tool": "report_status"}, "class": "semantic_missing_partner", "expected": "semantic_violation", "id": 236}
+{"call": {"arguments": {"channel": "safety", "geofence_min": 8.14}, "tool": "report_status"}, "class": "semantic_missing_partner", "expected": "semantic_violation", "id": 237}
+{"call": {"arguments": {"end_time": 465, "start_time": 781, "task_type": "patrol"}, "tool": "schedule_task"}, "class": "semantic_unordered", "expected": "semantic_violation", "id": 238}
+{"call": {"arguments": {"end_time": 258, "start_time": 545, "task_type": "deliver"}, "tool": "schedule_task"}, "class": "semantic_unordered", "expected": "semantic_violation", "id": 239}
+{"call": {"arguments": {"end_time": 413, "start_time": 665, "task_type": "patrol"}, "tool": "schedule_task"}, "class": "semantic_unordered", "expected": "semantic_violation", "id": 240}
+{"call": {"arguments": {"end_time": 673, "start_time": 942, "task_type": "patrol"}, "tool": "schedule_task"}, "class": "semantic_unordered", "expected": "semantic_violation", "id": 241}
+{"call": {"arguments": {"end_time": 423, "start_time": 945, "task_type": "clean"}, "tool": "schedule_task"}, "class": "semantic_unordered", "expected": "semantic_violation", "id": 242}
+{"call": {"arguments": {"end_time": 370, "start_time": 527, "task_type": "charge"}, "tool": "schedule_task"}, "class": "semantic_unordered", "expected": "semantic_violation", "id": 243}
+{"call": {"arguments": {"end_time": 640, "start_time": 818, "task_type": "clean"}, "tool": "schedule_task"}, "class": "semantic_unordered", "expected": "semantic_violation", "id": 244}
+{"call": {"arguments": {"end_time": 208, "start_time": 726, "task_type": "patrol"}, "tool": "schedule_task"}, "class": "semantic_unordered", "expected": "semantic_violation", "id": 245}
+{"call": {"arguments": {"end_time": 294, "start_time": 636, "task_type": "charge"}, "tool": "schedule_task"}, "class": "semantic_unordered", "expected": "semantic_violation", "id": 246}
+{"call": {"arguments": {"end_time": 124, "start_time": 724, "task_type": "clean"}, "tool": "schedule_task"}, "class": "semantic_unordered", "expected": "semantic_violation", "id": 247}
+{"call": {"arguments": {"end_time": 162, "start_time": 514, "task_type": "charge"}, "tool": "schedule_task"}, "class": "semantic_unordered", "expected": "semantic_violation", "id": 248}
+{"call": {"arguments": {"end_time": 565, "start_time": 659, "task_type": "patrol"}, "tool": "schedule_task"}, "class": "semantic_unordered", "expected": "semantic_violation", "id": 249}
+{"call": {"arguments": {"limit": 1.0, "scope": "zone"}, "tool": "set_speed_limit"}, "class": "semantic_conditional", "expected": "semantic_violation", "id": 250}
+{"call": {"arguments": {"limit": 1.0, "scope": "global", "zone": "stairwell"}, "tool": "set_speed_limit"}, "class": "semantic_conditional", "expected": "semantic_violation", "id": 251}
+{"call": {"arguments": {"limit": 1.0, "scope": "zone"}, "tool": "set_speed_limit"}, "class": "semantic_conditional", "expected": "semantic_violation", "id": 252}
+{"call": {"arguments": {"limit": 1.0, "scope": "global", "zone": "wet_floor"}, "tool": "set_speed_limit"}, "class": "semantic_conditional", "expected": "semantic_violation", "id": 253}
+{"call": {"arguments": {"limit": 1.0, "scope": "zone"}, "tool": "set_speed_limit"}, "class": "semantic_conditional", "expected": "semantic_violation", "id": 254}
+{"call": {"arguments": {"limit": 1.0, "scope": "global", "zone": "loading_bay"}, "tool": "set_speed_limit"}, "class": "semantic_conditional", "expected": "semantic_violation", "id": 255}
+{"call": {"arguments": {"limit": 1.0, "scope": "zone"}, "tool": "set_speed_limit"}, "class": "semantic_conditional", "expected": "semantic_violation", "id": 256}
+{"call": {"arguments": {"limit": 1.0, "scope": "global", "zone": "wet_floor"}, "tool": "set_speed_limit"}, "class": "semantic_conditional", "expected": "semantic_violation", "id": 257}
+{"call": {"arguments": {"limit": 1.0, "scope": "zone"}, "tool": "set_speed_limit"}, "class": "semantic_conditional", "expected": "semantic_violation", "id": 258}
+{"call": {"arguments": {"limit": 1.0, "scope": "global", "zone": "stairwell"}, "tool": "set_speed_limit"}, "class": "semantic_conditional", "expected": "semantic_violation", "id": 259}
+{"call": {"arguments": {"limit": 1.0, "scope": "zone"}, "tool": "set_speed_limit"}, "class": "semantic_conditional", "expected": "semantic_violation", "id": 260}
+{"call": {"arguments": {"limit": 1.0, "scope": "global", "zone": "wet_floor"}, "tool": "set_speed_limit"}, "class": "semantic_conditional", "expected": "semantic_violation", "id": 261}

@@ -1,0 +1,143 @@
+[
+  {
+    "name": "navigate_to_waypoint",
+    "description": "Drive the robot to a named waypoint.",
+    "schema": {
+      "type": "object",
+      "required": ["waypoint"],
+      "additionalProperties": false,
+      "properties": {
+        "waypoint": {"type": "string", "minLength": 1},
+        "speed": {"type": "number", "minimum": 0.1, "maximum": 2.0},
+        "avoid_zones": {"type": "array", "items": {"type": "string"}, "maxItems": 4}
+      }
+    },
+    "semantics": {
+      "refs": {"waypoint": "waypoints", "avoid_zones[]": "zones"}
+    }
+  },
+  {
+    "name": "pick_object",
+    "description": "Pick a known object with the gripper.",
+    "schema": {
+      "type": "object",
+      "required": ["object_id", "gripper_force"],
+      "additionalProperties": false,
+      "properties": {
+        "object_id": {"type": "string", "minLength": 1},
+        "gripper_force": {"type": "number", "minimum": 5, "maximum": 40}
+      }
+    },
+    "semantics": {
+      "refs": {"object_id": "objects"}
+    }
+  },
+  {
+    "name": "place_object",
+    "description": "Place the held object at a named waypoint.",
+    "schema": {
+      "type": "object",
+      "required": ["object_id", "waypoint"],
+      "additionalProperties": false,
+      "properties": {
+        "object_id": {"type": "string", "minLength": 1},
+        "waypoint": {"type": "string", "minLength": 1},
+        "gentle": {"type": "boolean"}
+      }
+    },
+    "semantics": {
+      "refs": {"object_id": "objects", "waypoint": "waypoints"}
+    }
+  },
+  {
+    "name": "set_speed_limit",
+    "description": "Limit robot speed globally or within a zone.",
+    "schema": {
+      "type": "object",
+      "required": ["limit", "scope"],
+      "additionalProperties": false,
+      "properties": {
+        "limit": {"type": "number", "minimum": 0.1, "maximum": 2.0},
+        "scope": {"type": "string", "enum": ["global", "zone"]},
+        "zone": {"type": "string", "minLength": 1}
+      }
+    },
+    "semantics": {
+      "refs": {"zone": "zones"},
+      "conditional": [
+        {"if": "scope", "equals": "zone", "then_required": ["zone"],
+         "else_forbidden": ["zone"]}
+      ]
+    }
+  },
+  {
+    "name": "schedule_task",
+    "description": "Schedule a task in a time window (seconds from now).",
+    "schema": {
+      "type": "object",
+      "required": ["task_type", "start_time", "end_time"],
+      "additionalProperties": false,
+      "properties": {
+        "task_type": {"type": "string", "enum": ["patrol", "charge", "deliver", "clean"]},
+        "start_time": {"type": "integer", "minimum": 0},
+        "end_time": {"type": "integer", "minimum": 0},
+        "priority": {"type": "integer", "minimum": 1, "maximum": 5}
+      }
+    },
+    "semantics": {
+      "ordered": [["start_time", "end_time"]]
+    }
+  },
+  {
+    "name": "query_map",
+    "description": "Query the map for an area at a resolution.",
+    "schema": {
+      "type": "object",
+      "required": ["area"],
+      "additionalProperties": false,
+      "properties": {
+        "area": {"type": "string", "enum": ["full", "floor1", "floor2", "outdoor"]},
+        "resolution": {"type": "number", "minimum": 0.01, "maximum": 1.0},
+        "include_dynamic": {"type": "boolean"}
+      }
+    },
+    "semantics": {}
+  },
+  {
+    "name": "grasp_handoff",
+    "description": "Hand the held object to a person, by id or at a waypoint (not both).",
+    "schema": {
+      "type": "object",
+      "required": [],
+      "additionalProperties": false,
+      "properties": {
+        "person_id": {"type": "string", "minLength": 1},
+        "waypoint": {"type": "string", "minLength": 1},
+        "confirm_speech": {"type": "boolean"}
+      }
+    },
+    "semantics": {
+      "refs": {"person_id": "people", "waypoint": "waypoints"},
+      "mutually_exclusive": [["person_id", "waypoint"]]
+    }
+  },
+  {
+    "name": "report_status",
+    "description": "Send a status report over a channel; a geofence needs both corners.",
+    "schema": {
+      "type": "object",
+      "required": ["channel"],
+      "additionalProperties": false,
+      "properties": {
+        "channel": {"type": "string", "enum": ["ops", "safety", "maintenance"]},
+        "include_battery": {"type": "boolean"},
+        "geofence_min": {"type": "number"},
+        "geofence_max": {"type": "number"}
+      }
+    },
+    "semantics": {
+      "requires_together": [["geofence_min", "geofence_max"]],
+      "ordered": [["geofence_min", "geofence_max"]]
+    }
+  }
+]

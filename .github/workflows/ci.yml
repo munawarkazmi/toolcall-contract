@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    name: Tests, differential fuzz, both tiers
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # The oracle is pinned: the differential claim is about a specific
+      # jsonschema version, and asserted counts must not be
+      # environment-dependent.
+      - run: pip install pytest jsonschema==4.19.2
+
+      - name: Unit tests (oracle edges, buckets, semantic classes)
+        run: python -m pytest -q tests/
+
+      # The committed constructed dataset must be exactly what the
+      # committed generator produces.
+      - name: Constructed dataset regeneration check
+        run: |
+          python tools/gen_constructed.py /tmp/constructed_regen.jsonl
+          diff datasets/constructed.jsonl /tmp/constructed_regen.jsonl
+
+      # Both load-bearing zeros on the constructed tier:
+      # validator_disagreement and invalid_marked_valid.
+      - name: Evaluate constructed tier
+        run: python tools/evaluate.py datasets/constructed.jsonl
+
+      # 25,000 schema/instance pairs; any structural disagreement with
+      # the oracle fails the build.
+      - name: Differential fuzz vs jsonschema
+        run: python tools/fuzz_differential.py
+
+      # Replays the committed qwen2.5:7b-instruct responses; fails on
+      # any validator disagreement.
+      - name: Evaluate real-model tier (committed dataset)
+        run: |
+          python tools/evaluate.py datasets/qwen2.5-7b-instruct.jsonl \
+            --label "qwen2.5:7b-instruct (temperature 0)"
