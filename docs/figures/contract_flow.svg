@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 500" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#123a5f"/>
+    </marker>
+    <marker id="arrGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2e7d4f"/>
+    </marker>
+    <marker id="arrRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#b03a2e"/>
+    </marker>
+  </defs>
+  <rect width="980" height="500" fill="#ffffff"/>
+  <text x="490" y="30" text-anchor="middle" font-size="18" font-weight="700" fill="#123a5f">The two-layer contract check (as implemented in toolcall_contract/validator.py)</text>
+
+  <!-- model output -->
+  <rect x="30" y="70" width="170" height="66" rx="12" fill="#f3ecd8" stroke="#c8a24c" stroke-width="2"/>
+  <text x="115" y="98" text-anchor="middle" font-size="13.5" font-weight="700" fill="#123a5f">LLM output</text>
+  <text x="115" y="118" text-anchor="middle" font-size="11" fill="#4b5a6a">free text</text>
+
+  <!-- extract -->
+  <rect x="250" y="70" width="180" height="66" rx="12" fill="#eef3f8" stroke="#123a5f" stroke-width="2"/>
+  <text x="340" y="98" text-anchor="middle" font-size="13" font-weight="700" fill="#123a5f">Extract tool call</text>
+  <text x="340" y="118" text-anchor="middle" font-size="10.5" fill="#4b5a6a">balanced-JSON scan, deterministic</text>
+
+  <!-- known tool -->
+  <rect x="480" y="70" width="180" height="66" rx="12" fill="#eef3f8" stroke="#123a5f" stroke-width="2"/>
+  <text x="570" y="98" text-anchor="middle" font-size="13" font-weight="700" fill="#123a5f">Tool exists?</text>
+  <text x="570" y="118" text-anchor="middle" font-size="10.5" fill="#4b5a6a">committed tool catalog</text>
+
+  <!-- structural: dual box -->
+  <rect x="330" y="190" width="330" height="86" rx="12" fill="#123a5f"/>
+  <text x="495" y="216" text-anchor="middle" font-size="13.5" font-weight="700" fill="#d9a441">Structural layer - run TWICE</text>
+  <text x="495" y="236" text-anchor="middle" font-size="11" fill="#dfe7ef">hand-written stdlib checker (documented subset)</text>
+  <text x="495" y="253" text-anchor="middle" font-size="11" fill="#dfe7ef">independent oracle: jsonschema 4.19.2, pinned</text>
+  <text x="495" y="269" text-anchor="middle" font-size="10.5" fill="#8ea0b2">types · required · enum · ranges · extra properties</text>
+
+  <!-- disagreement -->
+  <rect x="720" y="190" width="230" height="86" rx="12" fill="#f7e9e7" stroke="#b03a2e" stroke-width="2"/>
+  <text x="835" y="220" text-anchor="middle" font-size="13" font-weight="700" fill="#b03a2e">validator_disagreement</text>
+  <text x="835" y="240" text-anchor="middle" font-size="10.5" fill="#b03a2e">the differential invariant:</text>
+  <text x="835" y="256" text-anchor="middle" font-size="10.5" fill="#b03a2e">must be 0, fails CI</text>
+
+  <!-- semantic -->
+  <rect x="330" y="330" width="330" height="86" rx="12" fill="#123a5f"/>
+  <text x="495" y="356" text-anchor="middle" font-size="13.5" font-weight="700" fill="#d9a441">Semantic layer - the contract</text>
+  <text x="495" y="376" text-anchor="middle" font-size="11" fill="#dfe7ef">catalog refs · mutual exclusion · required together</text>
+  <text x="495" y="393" text-anchor="middle" font-size="11" fill="#dfe7ef">ordering · conditionals</text>
+  <text x="495" y="409" text-anchor="middle" font-size="10.5" fill="#8ea0b2">where the real failures concentrated (7/40 qwen calls)</text>
+
+  <!-- valid -->
+  <rect x="740" y="330" width="210" height="86" rx="12" fill="#e6f0e9" stroke="#2e7d4f" stroke-width="2"/>
+  <text x="845" y="362" text-anchor="middle" font-size="13.5" font-weight="700" fill="#2e7d4f">valid</text>
+  <text x="845" y="382" text-anchor="middle" font-size="10.5" fill="#4b5a6a">contract satisfied - says nothing</text>
+  <text x="845" y="398" text-anchor="middle" font-size="10.5" fill="#4b5a6a">about task-appropriateness (non-goal)</text>
+
+  <!-- reject buckets, left column -->
+  <rect x="30" y="190" width="230" height="40" rx="10" fill="#eceff2" stroke="#8a8f98" stroke-width="1.6"/>
+  <text x="145" y="215" text-anchor="middle" font-size="12" font-weight="700" fill="#4b5a6a">parse_failure</text>
+  <rect x="30" y="244" width="230" height="40" rx="10" fill="#eceff2" stroke="#8a8f98" stroke-width="1.6"/>
+  <text x="145" y="269" text-anchor="middle" font-size="12" font-weight="700" fill="#4b5a6a">unknown_tool (hallucinated)</text>
+  <rect x="30" y="298" width="230" height="40" rx="10" fill="#eceff2" stroke="#8a8f98" stroke-width="1.6"/>
+  <text x="145" y="323" text-anchor="middle" font-size="12" font-weight="700" fill="#4b5a6a">schema_violation</text>
+  <rect x="30" y="352" width="230" height="40" rx="10" fill="#eceff2" stroke="#8a8f98" stroke-width="1.6"/>
+  <text x="145" y="377" text-anchor="middle" font-size="12" font-weight="700" fill="#4b5a6a">semantic_violation</text>
+
+  <!-- arrows -->
+  <line x1="200" y1="103" x2="242" y2="103" stroke="#123a5f" stroke-width="2.5" marker-end="url(#arr)"/>
+  <line x1="430" y1="103" x2="472" y2="103" stroke="#123a5f" stroke-width="2.5" marker-end="url(#arr)"/>
+  <path d="M 340 136 L 340 160 L 145 160 L 145 182" fill="none" stroke="#8a8f98" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+  <text x="238" y="155" text-anchor="middle" font-size="10.5" fill="#8a8f98">no call found</text>
+  <path d="M 480 120 L 145 240 " fill="none" stroke="#8a8f98" stroke-width="0" />
+  <path d="M 490 136 L 490 160 L 262 264 " fill="none" stroke="#8a8f98" stroke-width="0"/>
+  <path d="M 505 136 L 505 158 L 268 264" fill="none" stroke="#8a8f98" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+  <text x="415" y="168" text-anchor="middle" font-size="10.5" fill="#8a8f98">no such tool</text>
+  <line x1="570" y1="136" x2="530" y2="182" stroke="#123a5f" stroke-width="2.5" marker-end="url(#arr)"/>
+  <line x1="660" y1="233" x2="712" y2="233" stroke="#b03a2e" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#arrRed)"/>
+  <text x="686" y="222" text-anchor="middle" font-size="10" fill="#b03a2e">differ</text>
+  <path d="M 330 250 L 268 318" fill="none" stroke="#8a8f98" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+  <text x="322" y="295" text-anchor="middle" font-size="10.5" fill="#8a8f98">both say invalid</text>
+  <line x1="495" y1="276" x2="495" y2="322" stroke="#123a5f" stroke-width="2.5" marker-end="url(#arr)"/>
+  <text x="560" y="303" text-anchor="middle" font-size="10.5" fill="#4b5a6a">both say valid</text>
+  <path d="M 330 385 L 268 380" fill="none" stroke="#8a8f98" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+  <text x="299" y="370" text-anchor="middle" font-size="10.5" fill="#8a8f98">breaks a rule</text>
+  <line x1="660" y1="373" x2="732" y2="373" stroke="#2e7d4f" stroke-width="2.5" marker-end="url(#arrGreen)"/>
+  <text x="696" y="362" text-anchor="middle" font-size="10.5" font-weight="700" fill="#2e7d4f">passes</text>
+
+  <text x="490" y="472" text-anchor="middle" font-size="12" fill="#8a8f98">Design diagram - bucket names are the pre-registered taxonomy; the counts live in the results, not here (the 7/40 note cites the committed qwen dataset).</text>
+</svg>

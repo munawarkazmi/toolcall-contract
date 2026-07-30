@@ -20,6 +20,8 @@ at the problem every agent framework has right now, built with the same
 discipline: an independent oracle, pre-registered outcome buckets, committed
 datasets, and load-bearing zeros that CI enforces on every push.
 
+![The two-layer contract check](docs/figures/contract_flow.svg)
+
 ## The differential invariant
 
 The validator itself is **standard-library Python with zero runtime
@@ -69,10 +71,22 @@ exactly as the shield checks safety, not optimality.
 
 **Tier one - constructed, zero inference, CI-enforced forever.** A seeded
 generator builds valid and invalid-by-construction calls against the
-committed [tool catalog](tools_catalog/tools.json) (eight robot-operations
-tools with semantic contracts), one class per bucket, every label confirmed
-against the oracle before it is written. CI regenerates the dataset and
-diffs it against the committed file.
+committed [tool catalog](tools_catalog/tools.json), one class per bucket,
+every label confirmed against the oracle before it is written. CI
+regenerates the dataset and diffs it against the committed file.
+
+The catalog: eight robot-operations tools, each carrying the contract rules
+its schema does not:
+
+| Tool | Semantic contract |
+| --- | --- |
+| `navigate_to_waypoint` | waypoint and every avoid-zone must exist in the catalogs |
+| `pick_object` / `place_object` | object (and waypoint) must exist |
+| `set_speed_limit` | `scope: "zone"` requires a `zone`; `"global"` forbids one |
+| `schedule_task` | `start_time` must not exceed `end_time` |
+| `query_map` | (schema-only - the control case) |
+| `grasp_handoff` | `person_id` and `waypoint` are mutually exclusive; both must exist |
+| `report_status` | geofence corners required together, and ordered |
 
 **Tier two - real model, zero inference at evaluation time.** The committed
 task set ([`datasets/tasks.json`](datasets/tasks.json), forty natural
@@ -119,6 +133,12 @@ model under evaluation: qwen2.5:7b-instruct (temperature 0)
   semantic_violation   7
   validator_disagreement 0   <-- load-bearing; must be 0
 ```
+
+![qwen results by layer](docs/figures/qwen_layers.png)
+
+([tools/render_figures.py](tools/render_figures.py) renders this by
+replaying the committed dataset through the validator - the same replay CI
+runs, so the figure cannot diverge from the evaluation.)
 
 Reading it precisely - facts about one 7B model at one temperature on n=40:
 
