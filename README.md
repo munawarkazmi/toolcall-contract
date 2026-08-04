@@ -213,6 +213,15 @@ Reading the replication precisely:
   the most honest failure in either dataset, landing in the one bucket
   built for it.
 
+## Plain-language guide
+
+For a non-specialist reader there is a five-page guide,
+[docs/explainer/explainer.pdf](docs/explainer/explainer.pdf), which explains
+what a tool call is, quotes the real well-formed-and-wrong calls from the
+committed datasets, and sets out the silent-substitution boundary this
+validator declares rather than scores across. Its source is committed
+alongside it and builds with `latexmk -pdf explainer.tex`.
+
 ## Reproduce
 
 ```bash
